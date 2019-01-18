@@ -96,3 +96,4 @@ Where a.deptno=b.deptno(+);
 select a.ename "empname",b.ename "mgrname" </br>
 from emp a ,emp b </br>
 where a.mgr=b.empno;
+![capture](https://user-images.githubusercontent.com/24494133/51387929-ddda1700-1b4d-11e9-9551-f607e35bef14.PNG)
