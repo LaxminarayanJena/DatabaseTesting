@@ -27,3 +27,23 @@ having max(sal)>3000
 select deptno from emp</br>
 Group by deptno</br>
 having count(*) >4
+
+#### 8)Create table products
+Create Table Products </br>
+(ProdId Number(4) Primary key, </br>
+ProdName Varchar(10) Not Null, </br>
+Qty Number(3) Check(qty>0) </br>
+);
+
+#### 9)find all tables
+Select * from tab;
+
+#### 10)add  column model_no in products table
+Alter table products </br>
+Add model_no varchar(10) Not NULL;
+
+#### 11)show structure of table
+Desc products;
+#### 12)create row
+insert into products </br>
+Values(1,’laptop’,4,23);	
