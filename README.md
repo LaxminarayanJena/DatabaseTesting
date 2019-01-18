@@ -58,3 +58,30 @@ delete from products where prodid=2;
 
 #### 15)roll back has no effect after commit
 
+#### 16) select 3rd highest salary
+select * from emp a </br>
+where 2=(select count(distinct(b.sal)) from emp b </br>
+where a.sal < b.sal);
+#### 17) display top 2 records
+Select *  from emp </br>
+Where  rownum <=2;
+### Joins
+#### 1)inner join
+select a.ename , b.dname </br>
+From emp a , dept b </br>
+Where a.deptno=b.deptno;
+
+#### 2)right outer join
+select a.ename , b.dname </br>
+From emp a , dept b </br>
+Where a.deptno(+)=b.deptno;
+
+#### 3) left outer join
+select a.ename , b.dname </br>
+From emp a , dept b </br>
+Where a.deptno=b.deptno(+);
+
+#### 4)self join(emp with their manager name)
+select a.ename "empname",b.ename "mgrname" </br>
+from emp a ,emp b </br>
+where a.mgr=b.empno;
