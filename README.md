@@ -47,3 +47,14 @@ Desc products;
 #### 12)create row
 insert into products </br>
 Values(1,’laptop’,4,23);	
+
+#### 13)update row value
+Update emp </br>
+Set sal=sal+200 </br>
+Where empno=7302;
+
+#### 14)delete a value
+delete from products where prodid=2;
+
+#### 15)roll back has no effect after commit
+
