@@ -62,7 +62,18 @@ delete from products where prodid=2;
 select * from emp a </br>
 where 2=(select count(distinct(b.sal)) from emp b </br>
 where a.sal < b.sal);
-#### 17) display top 2 records
+
+#### 17)bottom 3 salaries
+select * from emp a </br>
+where 2>=(select count(distinct(b.sal)) from emp b </br>
+where a.sal > b.sal);
+
+#### 18)top 3 salaries
+select * from emp a </br>
+where 2>=(select count(distinct(b.sal)) from emp b </br>
+where a.sal < b.sal);
+
+#### 19) display top 2 records
 Select *  from emp </br>
 Where  rownum <=2;
 ### Joins
