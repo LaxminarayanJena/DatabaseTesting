@@ -68,7 +68,7 @@ select * from emp a </br>
 where 2>=(select count(distinct(b.sal)) from emp b </br>
 where a.sal > b.sal);
 
-#### 18)top 3 salaries
+#### 18)top(highest) 3 salaries
 select * from emp a </br>
 where 2>=(select count(distinct(b.sal)) from emp b </br>
 where a.sal < b.sal);
