@@ -17,3 +17,13 @@ select sal from emp between 2000 and 3000;
 select distinct deptno from emp;
 #### 5) select  total no of records and total depts 
 select count(*) , count(deptno) from emp;
+#### 6) find max sal by dept  having sal greater than 3000
+select max(sal) from emp</br>
+group by job</br>
+having max(sal)>3000
+
+
+#### 7)deptno having more than 4 employees
+select deptno from emp</br>
+Group by deptno</br>
+having count(*) >4
