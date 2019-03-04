@@ -76,6 +76,12 @@ where a.sal < b.sal);
 #### 19) display top 2 records
 Select *  from emp </br>
 Where  rownum <=2;
+
+
+#### 20) Finds any values that have "e" in any position
+select * from emp 
+WHERE ename LIKE '%e%'  ;
+
 ### Joins
 #### 1)inner join
 select a.ename , b.dname </br>
