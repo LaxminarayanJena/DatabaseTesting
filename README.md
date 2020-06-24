@@ -86,7 +86,12 @@ WHERE ename LIKE '%e%'  ;
 #### 1)inner join
 select a.ename , b.dname </br>
 From emp a , dept b </br>
-Where a.deptno=b.deptno;
+Where a.deptno=b.deptno; </br>
+------ </br>
+SELECT emp.ename , dept.dname </br>
+FROM emp </br>
+INNER JOIN dept </br>
+ON emp.deptno= dept.deptno; </br>
 
 #### 2)right outer join
 select a.ename , b.dname </br>
