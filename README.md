@@ -28,6 +28,10 @@ select deptno from emp</br>
 Group by deptno</br>
 having count(*) >4
 
+#### 7)select even employee id
+SELECT * FROM EMPLOYEE  </br>
+WHERE id IN(SELECT id FROM EMPLOYEE WHERE id%2 = 0); </br>
+
 #### 8)Create table products
 Create Table Products </br>
 (ProdId Number(4) Primary key, </br>
