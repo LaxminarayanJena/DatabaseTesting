@@ -124,3 +124,17 @@ where a.deptno=b.deptno </br>
 and b.loc=c.loc
 
 ![capture](https://user-images.githubusercontent.com/24494133/51387929-ddda1700-1b4d-11e9-9551-f607e35bef14.PNG)
+
+Data integrity testing aims to identify any anomalies or inconsistencies in the data, such as missing values, incorrect data types, invalid references, or violated constraints. It helps ensure that the data is reliable, accurate, and suitable for its intended purpose.
+
+Here are some common types of data integrity tests in SQL:
+
+Nullability Testing: This test checks whether the columns that are supposed to allow null values actually allow them, and vice versa. It ensures that the data meets the requirements for mandatory and optional fields.
+
+Data Type Testing: This test ensures that the data stored in each column adheres to the specified data type. For example, a column defined as an integer should only contain numeric values, and a date column should contain valid date formats.
+
+Constraint Testing: Constraints, such as primary key, foreign key, unique key, and check constraints, define rules and relationships within a database. Constraint testing verifies that these rules are enforced correctly and that the data adheres to the defined constraints.
+
+Referential Integrity Testing: This test checks the consistency of relationships between tables using foreign keys. It ensures that foreign key values in one table match the primary key values in the referenced table, preventing orphaned or invalid data.
+
+Business Rule Testing: In addition to database-specific constraints, business rules may be defined to enforce specific requirements or logic. Data integrity testing includes validating the data against these business rules to ensure that it aligns with the expected criteria.
