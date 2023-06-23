@@ -66,6 +66,12 @@ delete from products where prodid=2;
 select * from emp a </br>
 where 2=(select count(distinct(b.sal)) from emp b </br>
 where a.sal < b.sal);
+</br>
+</br>
+SELECT *  </br>
+FROM  emp  </br>
+ORDER BY sal DESC </br>
+LIMIT 1 OFFSET 2; </br>
 
 #### 17)bottom 3 salaries
 select * from emp a </br>
