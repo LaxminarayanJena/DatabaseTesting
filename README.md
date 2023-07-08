@@ -92,6 +92,9 @@ Where  rownum <=2;
 select * from emp 
 WHERE ename LIKE '%e%'  ;
 
+#### 21) Find employee whose 3rd letter start with e
+SELECT * FROM employees WHERE name LIKE '__e%';
+
 ### Joins
 #### 1)inner join
 select a.ename , b.dname </br>
