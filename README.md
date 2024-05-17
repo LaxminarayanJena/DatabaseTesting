@@ -95,6 +95,12 @@ WHERE ename LIKE '%e%'  ;
 #### 21) Find employee whose 3rd letter start with e
 SELECT * FROM employees WHERE name LIKE '__e%';
 
+#### 22) Find duplicate records
+SELECT empid, COUNT(*) as cnt
+FROM emp
+GROUP BY empid
+HAVING COUNT(empid) > 1;
+
 ### Joins
 #### 1)inner join
 select a.ename , b.dname </br>
