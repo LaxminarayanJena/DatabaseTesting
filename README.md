@@ -11,6 +11,13 @@ set  lines 200 <br>
 
 #### 2)select employee with deptno 10,20
 select *  from emp where deptno in(10,20);
+
+#### 2)select employee with deptno 10 and 20 ,WHERE AND HAVING CLAUSE
+SELECT deptno, COUNT(*) AS total_employees </br>
+FROM employees </br>
+WHERE deptno IN (10, 20) </br>
+GROUP BY deptno; </br>
+
 #### 3)select employee with  salary between 2000 and 3000
 select sal from emp between 2000 and 3000;
 #### 4)select distinct deptno
