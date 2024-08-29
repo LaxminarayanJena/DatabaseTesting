@@ -165,6 +165,12 @@ Business Rule Testing: In addition to database-specific constraints, business ru
 ![image](https://github.com/user-attachments/assets/5ed81b51-49a1-471c-88fc-d86ffbe9bfbe)
  </br>
 ![image](https://github.com/user-attachments/assets/02afee39-0a27-4014-a907-91e1fe44b7cd)
+ </br>
+![image](https://github.com/user-attachments/assets/07eec0c9-22f0-42dc-b145-26a216dea46d)
+</br>
+![image](https://github.com/user-attachments/assets/2e562644-6a43-4cf4-a430-267af324cada)
+
+
 
 
  
