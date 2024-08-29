@@ -160,3 +160,11 @@ Constraint Testing: Constraints, such as primary key, foreign key, unique key, a
 Referential Integrity Testing: This test checks the consistency of relationships between tables using foreign keys. It ensures that foreign key values in one table match the primary key values in the referenced table, preventing orphaned or invalid data.
 
 Business Rule Testing: In addition to database-specific constraints, business rules may be defined to enforce specific requirements or logic. Data integrity testing includes validating the data against these business rules to ensure that it aligns with the expected criteria.
+
+
+![image](https://github.com/user-attachments/assets/5ed81b51-49a1-471c-88fc-d86ffbe9bfbe)
+ </br>
+![image](https://github.com/user-attachments/assets/02afee39-0a27-4014-a907-91e1fe44b7cd)
+
+
+ 
