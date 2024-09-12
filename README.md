@@ -108,6 +108,16 @@ FROM emp
 GROUP BY empid
 HAVING COUNT(empid) > 1;
 
+#### 22) Find records created today
+
+SELECT userid
+FROM user
+WHERE DATE(creationdate) BETWEEN CURDATE() - INTERVAL 1 DAY AND CURDATE();
+
+SELECT userid
+FROM user
+WHERE DATE(creationdate) = CURDATE();
+
 ### Joins
 #### 1)inner join
 select a.ename , b.dname </br>
