@@ -156,6 +156,20 @@ from emp a, dept b ,deptclerk c </br>
 where a.deptno=b.deptno </br>
 and b.loc=c.loc
 
+```
+RANK and DENSE_RANK are both window functions used to assign a ranking to rows based on an ordering.
+The difference is how they handle ties.
+RANK:
+Gives the same rank to rows with the same value.
+Creates gaps in the ranking after ties.
+Example: 1, 2, 2, 4.
+DENSE_RANK:
+Also gives the same rank for ties.
+Doesn’t skip any ranks.
+Example: 1, 2, 2, 3.
+In short:
+RANK leaves gaps; DENSE_RANK doesn’t.
+```
 ![capture](https://user-images.githubusercontent.com/24494133/51387929-ddda1700-1b4d-11e9-9551-f607e35bef14.PNG)
 
 Data integrity testing aims to identify any anomalies or inconsistencies in the data, such as missing values, incorrect data types, invalid references, or violated constraints. It helps ensure that the data is reliable, accurate, and suitable for its intended purpose.
