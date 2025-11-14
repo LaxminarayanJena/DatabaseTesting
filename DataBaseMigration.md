@@ -1,187 +1,134 @@
-# DatabaseTesting
+What is Database Migration Testing?
 
-DQL-Select</br>
-DDL-create,alter,drop,rename,truncate</br>
-DML-updat,insert,delete</br>
-DCL-grant,revoke</br>
-TCL-commit,savepoint,rollback</br>
+Database migration testing is the process of checking whether data, schema and functionality work correctly after moving a database from one environment to another.
+This could be:
 
-#### 1)Display table in proper format
-set  lines 200 <br>
- set pages 200<br>
+Old version to a new version
 
-#### 2)select employee with deptno 10,20
-select *  from emp where deptno in(10,20);
+One server to another
 
-#### 2)select employee with deptno 10 and 20 ,WHERE AND HAVING CLAUSE
-SELECT deptno, COUNT(*) AS total_employees </br>
-FROM employees </br>
-WHERE deptno IN (10, 20) </br>
-GROUP BY deptno; </br>
+One database type to another (ex: Oracle to PostgreSQL)
 
-#### 3)select employee with  salary between 2000 and 3000
-select sal from emp between 2000 and 3000;
-#### 4)select distinct deptno
-select distinct deptno from emp;
-#### 5) select  total no of records and total depts 
-select count(*) , count(deptno) from emp;
-#### 6) find max sal by dept  having sal greater than 3000
-select max(sal) from emp</br>
-group by job</br>
-having max(sal)>3000
+On-prem to cloud
 
+The goal is to make sure nothing breaks after the migration.
 
-#### 7)deptno having more than 4 employees
-select deptno from emp</br>
-Group by deptno</br>
-having count(*) >4
+What we verify in Database Migration Testing
+1. Schema Migration
 
-#### 7)select even employee id
-SELECT * FROM EMPLOYEE  </br>
-WHERE id IN(SELECT id FROM EMPLOYEE WHERE id%2 = 0); </br>
+Tables, columns, data types, indexes, constraints should match the target system.
 
-#### 8)Create table products
-Create Table Products </br>
-(ProdId Number(4) Primary key, </br>
-ProdName Varchar(10) Not Null, </br>
-Qty Number(3) Check(qty>0) </br>
-);
+Any changes in schema are handled correctly.
 
-#### 9)find all tables
-Select * from tab;
+2. Data Migration
 
-#### 10)add  column model_no in products table
-Alter table products </br>
-Add model_no varchar(10) Not NULL;
+All records are correctly transferred.
 
-#### 11)show structure of table
-Desc products;
-#### 12)create row
-insert into products </br>
-Values(1,’laptop’,4,23);	
+No missing, duplicate or corrupted data.
 
-#### 13)update row value
-Update emp </br>
-Set sal=sal+200 </br>
-Where empno=7302;
+Row counts and sample data validation.
 
-#### 14)delete a value
-delete from products where prodid=2;
+3. Data Integrity
 
-#### 15)roll back has no effect after commit
+Primary keys, foreign keys, unique constraints, relationships must work the same.
 
-#### 16) select 3rd highest salary
-select * from emp a </br>
-where 2=(select count(distinct(b.sal)) from emp b </br>
-where a.sal < b.sal);
-</br>
-</br>
-SELECT *  </br>
-FROM  emp  </br>
-ORDER BY sal DESC </br>
-LIMIT 1 OFFSET 2; </br>
+4. Application Functionality
 
-#### 17)bottom 3 salaries
-select * from emp a </br>
-where 2>=(select count(distinct(b.sal)) from emp b </br>
-where a.sal > b.sal);
+The application should behave correctly with the new database.
 
-#### 18)top(highest) 3 salaries
-select * from emp a </br>
-where 2>=(select count(distinct(b.sal)) from emp b </br>
-where a.sal < b.sal);
+All CRUD operations (Create, Read, Update, Delete) must work.
 
-#### 19) display top 2 records
-Select *  from emp </br>
-Where  rownum <=2;
+5. Performance
 
+Queries should run within acceptable time.
 
-#### 20) Finds any values that have "e" in any position
-select * from emp 
-WHERE ename LIKE '%e%'  ;
+Indexes and optimized queries still work.
 
-#### 21) Find employee whose 3rd letter start with e
-SELECT * FROM employees WHERE name LIKE '__e%';
+6. Compatibility
 
-#### 22) Find duplicate records
-SELECT empid, COUNT(*) as cnt
-FROM emp
-GROUP BY empid
-HAVING COUNT(empid) > 1;
+Stored procedures, triggers, views, functions should run without errors.
 
-#### 22) Find records created today
+Typical Database Migration Testing Process
 
-SELECT userid
-FROM user
-WHERE DATE(creationdate) BETWEEN CURDATE() - INTERVAL 1 DAY AND CURDATE();
+Understand the old and new database structure
 
-SELECT userid
-FROM user
-WHERE DATE(creationdate) = CURDATE();
+Run schema comparison
 
-### Joins
-#### 1)inner join
-select a.ename , b.dname </br>
-From emp a , dept b </br>
-Where a.deptno=b.deptno; </br>
--------------------------------------------- </br>
-SELECT emp.ename , dept.dname </br>
-FROM emp </br>
-INNER JOIN dept </br>
-ON emp.deptno= dept.deptno; </br>
+Run data count comparison
 
-#### 2)right outer join
-select a.ename , b.dname </br>
-From emp a , dept b </br>
-Where a.deptno(+)=b.deptno;
+Perform sample data validation
 
--------------------------------------------- </br>
-SELECT emp.ename , dept.dname </br>
-FROM emp </br>
-RIGHT OUTER JOIN dept ON emp.deptno= dept.deptno;
+Check constraints and relationships
 
-#### 3) left outer join
-select a.ename , b.dname </br>
-From emp a , dept b </br>
-Where a.deptno=b.deptno(+);
+Run application end-to-end tests
 
-#### 4)self join(emp with their manager name)
-select a.ename "empname",b.ename "mgrname" </br>
-from emp a ,emp b </br>
-where a.mgr=b.empno;
+Test performance and load
 
-#### 5)3 table join
-select a.ename, b. loc, c.clerkname </br>
-from emp a, dept b ,deptclerk c </br>
-where a.deptno=b.deptno </br>
-and b.loc=c.loc
+Validate logs and error handling
 
-![capture](https://user-images.githubusercontent.com/24494133/51387929-ddda1700-1b4d-11e9-9551-f607e35bef14.PNG)
+Sign off
 
-Data integrity testing aims to identify any anomalies or inconsistencies in the data, such as missing values, incorrect data types, invalid references, or violated constraints. It helps ensure that the data is reliable, accurate, and suitable for its intended purpose.
+You said:
+what is on prem to cloud migration
 
-Here are some common types of data integrity tests in SQL:
+Why companies do it
 
-Nullability Testing: This test checks whether the columns that are supposed to allow null values actually allow them, and vice versa. It ensures that the data meets the requirements for mandatory and optional fields.
+Lower hardware and maintenance cost
 
-Data Type Testing: This test ensures that the data stored in each column adheres to the specified data type. For example, a column defined as an integer should only contain numeric values, and a date column should contain valid date formats.
+Better scalability
 
-Constraint Testing: Constraints, such as primary key, foreign key, unique key, and check constraints, define rules and relationships within a database. Constraint testing verifies that these rules are enforced correctly and that the data adheres to the defined constraints.
+Higher availability and disaster recovery
 
-Referential Integrity Testing: This test checks the consistency of relationships between tables using foreign keys. It ensures that foreign key values in one table match the primary key values in the referenced table, preventing orphaned or invalid data.
+Faster deployments
 
-Business Rule Testing: In addition to database-specific constraints, business rules may be defined to enforce specific requirements or logic. Data integrity testing includes validating the data against these business rules to ensure that it aligns with the expected criteria.
+Pay-as-you-use pricing
 
+What gets migrated
 
-![image](https://github.com/user-attachments/assets/5ed81b51-49a1-471c-88fc-d86ffbe9bfbe)
- </br>
-![image](https://github.com/user-attachments/assets/ade08df1-0790-4fbf-9bb3-c5187073eb59)
- </br>
-![image](https://github.com/user-attachments/assets/07eec0c9-22f0-42dc-b145-26a216dea46d)
-</br>
-![image](https://github.com/user-attachments/assets/2e562644-6a43-4cf4-a430-267af324cada)
+Applications
 
+Databases
 
+Files and storage
 
+Servers and VMs
 
- 
+Security components
+
+Networking setup
+
+Types of cloud migration
+
+Lift and Shift (Rehost)
+Move as-is to the cloud without modifying the application.
+
+Replatform
+Make small changes to use cloud services (like moving DB to AWS RDS).
+
+Refactor / Re-architect
+Modify the application to use cloud-native architecture (microservices, serverless).
+
+Replace
+Move from your existing app to a SaaS solution.
+
+What we test during on-prem to cloud migration
+
+Connectivity (network, VPN, DNS resolution)
+
+Application functionality end-to-end
+
+Data migration accuracy
+
+API and service integrations
+
+Performance and load under cloud environment
+
+Security policies, IAM roles
+
+Failover and backup
+
+Logging and monitoring
+
+Short interview answer
+
+“On-prem to cloud migration means moving an organisation’s applications, servers, and databases from its physical data center to a cloud provider like AWS or Azure. The goal is to reduce hardware cost, increase scalability and improve availability. During testing, we verify data migration, functionality, performance, security rules, integrations, and overall stability in the cloud environment.”
