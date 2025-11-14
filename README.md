@@ -169,6 +169,7 @@ Doesn’t skip any ranks.
 Example: 1, 2, 2, 3.
 In short:
 RANK leaves gaps; DENSE_RANK doesn’t.
+“Constraints are rules applied to columns or tables to enforce data integrity. Examples include primary key, foreign key, unique, not null, check and default.”
 ```
 ![capture](https://user-images.githubusercontent.com/24494133/51387929-ddda1700-1b4d-11e9-9551-f607e35bef14.PNG)
 
